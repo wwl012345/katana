@@ -1,0 +1,2 @@
+Linux使用用法:
+./katana -u https://URL/ -silent | grep -Eo 'https?://[^[:space:]]+\.js' > urls.txt && while read -r url; do map_url="${url}.map"; [ "$(curl -s -o /dev/null -w '%{http_code}' "$map_url")" = "200" ] && echo "$map_url"; done < urls.txt; rm urls.txt
